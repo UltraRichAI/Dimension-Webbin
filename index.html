@@ -1,544 +1,146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dimension Webbin — Portal Estudiantil Neon</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subir Archivos - Mi Plataforma Universitaria</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
-<!-- Tipografía expresiva y moderna -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
 
-<style>
-  :root{
-    --bg-1: #07060a;
-    --bg-2: #0f0712;
-    --glass: rgba(255,255,255,0.04);
-    --muted: #b7c0d6;
-    --neon-blue: #00d0ff;
-    --neon-purple: #b65cff;
-    --neon-green: #39ff8a;
-    --accent-gradient: linear-gradient(135deg,var(--neon-purple),var(--neon-blue));
-    --card-radius: 14px;
-    --glass-border: rgba(255,255,255,0.06);
-    --shadow: 0 10px 30px rgba(2,6,23,0.6);
-    --fast: 180ms;
-    --ease: cubic-bezier(.16,.8,.24,1);
-  }
+    .upload-container {
+      background: rgba(25, 25, 40, 0.9);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    }
 
-  /* Reset */
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family: Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background: radial-gradient(800px 400px at 10% 10%, rgba(182,92,255,0.07), transparent),
-                radial-gradient(600px 300px at 90% 80%, rgba(0,208,255,0.04), transparent),
-                linear-gradient(180deg,var(--bg-1),var(--bg-2));
-    color:#e6eef8;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    overflow:hidden;
-  }
+    h2 {
+      font-size: 2rem;
+      color: #00ffff;
+      text-shadow: 0 0 8px #00ffff;
+    }
 
-  /* Layout */
-  .app {
-    display:grid;
-    grid-template-columns: 300px 1fr 420px;
-    gap:28px;
-    height:100vh;
-    padding:28px;
-    align-items:start;
-  }
+    p {
+      color: #aaa;
+    }
 
-  /* Responsive */
-  @media (max-width:1100px){
-    .app{grid-template-columns:1fr;grid-auto-rows:min-content;padding:18px;overflow:auto}
-    .left, .right{order:2}
-    .center{order:1}
-  }
+    .upload-box {
+      border: 2px dashed #00ffff;
+      border-radius: 15px;
+      padding: 2rem;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+      background: rgba(0, 0, 0, 0.3);
+    }
 
-  /* LEFT: course list with neon accents */
-  .left{
-    position:relative;
-    border-radius:var(--card-radius);
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    padding:18px;
-    box-shadow:var(--shadow);
-    border:1px solid var(--glass-border);
-    min-height:200px;
-    overflow:auto;
-  }
+    .upload-box:hover {
+      background: rgba(0, 255, 255, 0.1);
+    }
 
-  .brand {
-    display:flex;gap:12px;align-items:center;margin-bottom:14px;
-  }
-  .logo {
-    width:56px;height:56px;border-radius:12px;
-    background: conic-gradient(from 120deg at 50% 50%, var(--neon-purple), var(--neon-blue), var(--neon-green));
-    box-shadow: 0 6px 18px rgba(54,21,70,0.45);
-    display:flex;align-items:center;justify-content:center;font-weight:800;color:#05040a;
-    transform:translateZ(0);
-  }
-  .brand h1{font-size:18px;margin:0;letter-spacing:0.2px}
-  .brand p{margin:0;font-size:12px;color:var(--muted)}
+    .upload-btn {
+      margin-top: 1.5rem;
+      padding: 0.8rem 2rem;
+      background: linear-gradient(90deg, #00ffff, #8a2be2);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00ffff;
+    }
 
-  .search {
-    display:flex;align-items:center;gap:10px;margin:12px 0;padding:8px;border-radius:12px;background:rgba(255,255,255,0.02);
-    border:1px solid rgba(255,255,255,0.02);
-  }
-  .search input{
-    background:transparent;border:0;outline:none;color:inherit;width:100%;font-size:14px;
-  }
-  .chip{
-    display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px;margin:6px 6px 0 0;color:var(--muted)
-  }
+    .upload-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #8a2be2;
+    }
 
-  .course-list{margin-top:12px;display:flex;flex-direction:column;gap:10px}
-  .course-item{
-    display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:12px;cursor:pointer;
-    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-    border:1px solid rgba(255,255,255,0.03);transition:all var(--fast) var(--ease);
-  }
-  .course-item .left-meta{display:flex;gap:12px;align-items:center}
-  .course-item .icon{
-    width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-    font-size:18px;background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  }
-  .course-item h3{margin:0;font-size:14px}
-  .course-item p{margin:0;font-size:12px;color:var(--muted)}
+    .status {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
 
-  .course-item:hover{
-    transform:translateY(-6px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.6);
-    border:1px solid rgba(0,208,255,0.18);
-  }
-  .course-item.active{
-    background: linear-gradient(90deg, rgba(182,92,255,0.07), rgba(0,208,255,0.04));
-    border:1px solid rgba(182,92,255,0.22);
-    box-shadow: 0 12px 40px rgba(54,21,70,0.35);
-    transform: none;
-  }
+    a.back {
+      display: block;
+      margin-top: 2rem;
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
 
-  /* CENTER: weeks area */
-  .center{
-    position:relative;border-radius:var(--card-radius);padding:20px;overflow:auto;
-    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-    border:1px solid rgba(255,255,255,0.02);
-    box-shadow: var(--shadow);
-  }
-  .center-head{
-    display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;
-  }
-  .center-head .title{font-weight:700;font-size:20px}
-  .center-head .subtitle{color:var(--muted);font-size:13px}
-
-  .weeks-grid{
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;
-  }
-  .week-card{
-    border-radius:12px;padding:14px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
-    border:1px solid rgba(255,255,255,0.03);
-    transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
-    cursor:pointer;position:relative;overflow:hidden;
-  }
-  .week-card:hover{
-    transform: translateY(-8px) rotateX(2deg);
-    box-shadow: 0 18px 40px rgba(2,6,23,0.6);
-  }
-  .week-num{font-size:13px;color:var(--muted);margin-bottom:6px}
-  .week-title{font-size:15px;font-weight:600;margin-bottom:8px}
-  .week-topic{font-size:13px;color:var(--muted);margin-bottom:8px}
-
-  .resource-row{display:flex;gap:8px;flex-wrap:wrap}
-
-  /* RIGHT: resources + upload */
-  .right{
-    border-radius:var(--card-radius);padding:20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-    border:1px solid rgba(255,255,255,0.02);box-shadow:var(--shadow);min-height:200px;overflow:auto;
-  }
-  .panel-title{font-weight:700;color:var(--neon-purple);margin-bottom:10px}
-  .resource-item{
-    display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-    margin-bottom:10px;border:1px solid rgba(255,255,255,0.03);transition:all var(--fast) var(--ease);
-  }
-  .resource-item:hover{transform:translateX(6px);border:1px solid rgba(0,208,255,0.12)}
-  .resource-item a{color:var(--neon-blue);text-decoration:none;font-weight:600}
-  .resource-item small{color:var(--muted)}
-
-  /* Upload box with neon accent */
-  .upload {
-    margin-top:18px;padding:16px;border-radius:12px;background:linear-gradient(135deg, rgba(0,208,255,0.03), rgba(182,92,255,0.03));
-    border:1px dashed rgba(255,255,255,0.03);
-    display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;
-  }
-  .upload input[type=file]{display:none}
-  .btn {
-    display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:0;background:var(--neon-blue);color:#05040a;font-weight:700;cursor:pointer;
-    box-shadow:0 8px 24px rgba(0,208,255,0.08);transition:transform var(--fast) var(--ease);
-  }
-  .btn:hover{transform:translateY(-4px);filter:brightness(1.05)}
-  .secondary{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);font-weight:600;padding:8px 12px;border-radius:9px}
-
-  /* Decorative organic blob (SVG placed absolute) */
-  .bg-blob{
-    position:absolute;right:-120px;top:-60px;opacity:0.12;filter: blur(30px);transform:rotate(15deg);
-  }
-
-  /* small microinteraction: tilt on mousemove */
-  .tilt {
-    transform-style:preserve-3d;
-    perspective:1000px;
-    will-change:transform;
-  }
-
-  /* scroll reveal */
-  .reveal {
-    opacity:0; transform: translateY(18px); transition: opacity 520ms var(--ease), transform 520ms var(--ease);
-  }
-  .reveal.show {opacity:1; transform:none}
-
-  /* minimal radial menu (experimental navigation) */
-  .radial {
-    position:fixed;left:32px;bottom:32px;z-index:60;
-    display:grid;place-items:center;
-  }
-  .hamburger{
-    width:64px;height:64px;border-radius:999px;background:linear-gradient(135deg,var(--neon-purple),var(--neon-blue));
-    display:flex;align-items:center;justify-content:center;color:#05040a;font-weight:800;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,0.6);
-    transition:transform 220ms var(--ease);
-  }
-  .hamburger:hover{transform:translateY(-6px)}
-  .radial-menu{position:absolute;display:grid;place-items:center;pointer-events:none}
-  .radial-menu.open{pointer-events:auto}
-  .radial-menu a{
-    position:absolute;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(135deg,var(--neon-purple),var(--neon-blue));color:#05040a;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(0,0,0,0.45);
-    transform:scale(0.9);opacity:0;transition:transform 260ms var(--ease),opacity 260ms var(--ease);
-  }
-  .radial-menu.open a{opacity:1;transform:scale(1)}
-  .radial-menu a:nth-child(1){transform-origin:center;left:0;top:-88px}
-  .radial-menu a:nth-child(2){left:70px;top:-60px}
-  .radial-menu a:nth-child(3){left:88px;top:0}
-  .radial-menu a:nth-child(4){left:70px;top:70px}
-  .radial-menu a:nth-child(5){left:0;top:88px}
-  /* small footer note */
-  .small-note{position:fixed;left:50%;transform:translateX(-50%);bottom:10px;color:rgba(255,255,255,0.12);font-size:12px}
-</style>
+    a.back:hover {
+      color: #8a2be2;
+      text-shadow: 0 0 10px #8a2be2;
+    }
+  </style>
 </head>
 <body>
-  <div class="app">
-    <!-- LEFT -->
-    <aside class="left" id="leftCol">
-      <div class="brand">
-        <div class="logo">DW</div>
-        <div>
-          <h1>Dimension Webbin</h1>
-          <p style="color:var(--muted);font-size:12px">Tu panel de estudio — neon edition</p>
-        </div>
-      </div>
+  <div class="upload-container">
+    <h2>📤 Subir Tarea</h2>
+    <p>Arrastra tu archivo PDF o haz clic para seleccionarlo.</p>
 
-      <div class="search" role="search" aria-label="Buscar cursos">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:.7"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-        <input id="searchInput" placeholder="Buscar curso..." />
-      </div>
-
-      <div id="chips" style="margin-top:8px">
-        <span class="chip">Semestre</span>
-        <span class="chip">Proyectos</span>
-        <span class="chip">Exámenes</span>
-      </div>
-
-      <div class="course-list" id="courseList" style="margin-top:12px"></div>
-
-      <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">
-        <button class="secondary" id="newCourseBtn">+ Nuevo Curso</button>
-        <button class="secondary" id="importBtn">Importar</button>
-      </div>
-    </aside>
-
-    <!-- CENTER -->
-    <main class="center" id="centerCol">
-      <svg class="bg-blob" width="520" height="420" viewBox="0 0 520 420">
-        <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#b65cff"/><stop offset="1" stop-color="#00d0ff"/></linearGradient></defs>
-        <path fill="url(#g1)" d="M168 0c56 0 112 16 152 52s84 84 84 148-44 128-92 168-120 84-184 60S-10 420 0 344 34 116 88 64 112 0 168 0z"></path>
-      </svg>
-
-      <div class="center-head">
-        <div>
-          <div class="title" id="centerTitle">Selecciona un curso</div>
-          <div class="subtitle" id="centerSubtitle">Tus semanas aparecerán aquí</div>
-        </div>
-        <div style="display:flex;gap:10px;align-items:center">
-          <button class="secondary" id="filterBtn">Filtrar</button>
-          <button class="btn" id="downloadAllBtn">📥 Descargar todo</button>
-        </div>
-      </div>
-
-      <div class="weeks-grid" id="weeksGrid" aria-live="polite"></div>
-    </main>
-
-    <!-- RIGHT -->
-    <aside class="right" id="rightCol">
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <div class="panel-title">Recursos</div>
-        <div style="color:var(--muted);font-size:13px">Click para abrir</div>
-      </div>
-
-      <div id="resourceList" style="margin-top:12px"></div>
-
-      <div class="upload" id="uploadBox" title="Arrastra o haz clic para seleccionar">
-        <div style="font-weight:700;color:#04060a">Sube tu tarea</div>
-        <div style="color:var(--muted);font-size:13px">PDF recomendado • máximo 20 MB</div>
-        <label for="fileInput" class="btn" style="margin-top:10px">📤 Seleccionar archivo</label>
-        <input id="fileInput" type="file" accept=".pdf" style="display:none" />
-        <div id="uploadStatus" style="margin-top:8px;color:var(--muted);font-size:13px"></div>
-      </div>
-    </aside>
-  </div>
-
-  <!-- Radial experimental menu -->
-  <div class="radial">
-    <div class="radial-menu" id="radialMenu">
-      <a href="#" data-action="inicio" title="Inicio">🏠</a>
-      <a href="#" data-action="cursos" title="Cursos">📚</a>
-      <a href="#" data-action="subir" title="Subir">📤</a>
-      <a href="#" data-action="info" title="Info">ℹ️</a>
-      <a href="#" data-action="contact" title="Contacto">✉️</a>
+    <div class="upload-box" id="drop-zone">
+      <input type="file" id="fileInput" accept="application/pdf" hidden />
+      <p>Haz clic o arrastra tu archivo aquí</p>
     </div>
-    <div class="hamburger" id="hamburger">≡</div>
+
+    <button class="upload-btn" id="uploadBtn">Enviar</button>
+    <div class="status" id="statusText"></div>
+
+    <a href="index.html" class="back">← Volver al inicio</a>
   </div>
 
-  <div class="small-note">Dimension Webbin • Neon UI — ligero y rápido</div>
+  <script>
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('fileInput');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const statusText = document.getElementById('statusText');
 
-<script>
-/* ----------- Helpers ----------- */
-const $ = s => document.querySelector(s);
-const $$ = s => Array.from(document.querySelectorAll(s));
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('dragover', e => {
+      e.preventDefault();
+      dropZone.style.borderColor = '#8a2be2';
+    });
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.style.borderColor = '#00ffff';
+    });
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      fileInput.files = e.dataTransfer.files;
+    });
 
-/* ----------- Load courses from courses.json (user's file) ----------- */
-let coursesData = [];
-let activeCourseIndex = -1;
+    uploadBtn.addEventListener('click', () => {
+      const file = fileInput.files[0];
+      if (!file) {
+        statusText.textContent = '⚠️ No se seleccionó ningún archivo.';
+        statusText.style.color = '#ff5555';
+        return;
+      }
+      statusText.textContent = '📡 Subiendo...';
+      statusText.style.color = '#00ffff';
 
-async function loadCourses(){
-  try{
-    const res = await fetch('courses.json?t=' + Date.now());
-    coursesData = (await res.json()).courses || [];
-    renderCourseList(coursesData);
-    // open first course by default if exists
-    if(coursesData.length) selectCourse(0);
-  } catch(e){
-    console.error('No se pudo cargar courses.json', e);
-    $('#centerTitle').textContent = 'Error cargando datos';
-    $('#centerSubtitle').textContent = 'Verifica courses.json';
-  }
-}
-
-/* ----------- Render left course list ----------- */
-function renderCourseList(list){
-  const container = $('#courseList');
-  container.innerHTML = '';
-  list.forEach((c, idx) => {
-    const item = document.createElement('div');
-    item.className = 'course-item reveal' + (idx===0 ? ' active':'');
-    item.innerHTML = `
-      <div class="left-meta">
-        <div class="icon">${getEmojiForTitle(c.title)}</div>
-        <div>
-          <h3>${c.title}</h3>
-          <p>${(c.description||'').slice(0,60)}</p>
-        </div>
-      </div>
-      <div style="font-size:12px;color:var(--muted)">${c.weeks.length} semanas</div>
-    `;
-    item.addEventListener('click', ()=> selectCourse(idx));
-    container.appendChild(item);
-    setTimeout(()=> item.classList.add('show'), 80*idx);
-  });
-}
-
-/* map some icons by keywords */
-function getEmojiForTitle(t){
-  t = (t||'').toLowerCase();
-  if(t.includes('telecom')) return '📡';
-  if(t.includes('neuro')) return '🧠';
-  if(t.includes('tics')||t.includes('investig')) return '💻';
-  if(t.includes('arquitect')) return '🖥️';
-  return '📘';
-}
-
-/* ----------- Select course and populate center + right ----------- */
-function selectCourse(index){
-  activeCourseIndex = index;
-  // highlight
-  $$('.course-item').forEach((el,i)=> el.classList.toggle('active', i===index));
-  const course = coursesData[index];
-  if(!course) return;
-  $('#centerTitle').textContent = course.title;
-  $('#centerSubtitle').textContent = course.description || '';
-  renderWeeks(course);
-  renderResources([]); // clear right panel
-}
-
-/* ----------- Weeks grid ----------- */
-function renderWeeks(course){
-  const grid = $('#weeksGrid');
-  grid.innerHTML = '';
-  course.weeks.forEach((w, i) => {
-    const card = document.createElement('div');
-    card.className = 'week-card tilt reveal';
-    card.innerHTML = `
-      <div class="week-num">Semana ${w.week}</div>
-      <div class="week-title">${w.topic}</div>
-      <div class="week-topic" aria-hidden>${(w.resources && w.resources.length)? w.resources.map(r=>r.name).slice(0,2).join(' • '): 'Sin recursos'}</div>
-      <div class="resource-row" style="margin-top:8px">
-        <button class="secondary" style="background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 8px;border-radius:8px;font-weight:600">Ver</button>
-        <button class="btn" data-week="${i}" style="padding:6px 8px">Abrir recursos</button>
-      </div>
-    `;
-    // interactions
-    card.querySelector('.btn').addEventListener('click', ()=> showWeekResources(course, w));
-    card.querySelector('.secondary').addEventListener('click', ()=> openWeekModal(course, w));
-    // tilt effect
-    addTilt(card);
-    grid.appendChild(card);
-    // reveal
-    setTimeout(()=> card.classList.add('show'), 80*i);
-  });
-}
-
-/* ----------- Show resources in right panel ----------- */
-function renderResources(resources){
-  const list = $('#resourceList');
-  list.innerHTML = '';
-  if(!resources || !resources.length){
-    list.innerHTML = `<div style="color:var(--muted);margin-top:8px">Selecciona una semana para ver recursos</div>`;
-    return;
-  }
-  resources.forEach(r=>{
-    const div = document.createElement('div');
-    div.className = 'resource-item';
-    div.innerHTML = `<div><strong style="color:var(--neon-green)">${r.name}</strong><div><small style="color:var(--muted)">${r.url}</small></div></div>
-                     <div><a href="${r.url}" target="_blank" rel="noopener">Abrir</a></div>`;
-    list.appendChild(div);
-  });
-}
-
-/* ----------- show resources for chosen week ----------- */
-function showWeekResources(course, week){
-  renderResources(week.resources || []);
-  // smooth scroll right panel into view on small screens
-  if(window.innerWidth < 1100){
-    document.querySelector('.right').scrollIntoView({behavior:'smooth'});
-  }
-}
-
-/* lightweight modal (preview placeholder) */
-function openWeekModal(course, week){
-  // Simple prompt for now
-  alert(`Semana ${week.week} — ${week.topic}\nRecursos: ${ (week.resources||[]).map(r=>r.name).join(', ') || 'Ninguno'}`);
-}
-
-/* ----------- Tilt microinteraction ----------- */
-function addTilt(el){
-  el.addEventListener('mousemove', (ev)=>{
-    const rect = el.getBoundingClientRect();
-    const x = ev.clientX - rect.left;
-    const y = ev.clientY - rect.top;
-    const px = (x / rect.width) - 0.5;
-    const py = (y / rect.height) - 0.5;
-    el.style.transform = `translateY(-6px) rotateX(${(-py*6)}deg) rotateY(${px*8}deg)`;
-  });
-  el.addEventListener('mouseleave', ()=> el.style.transform = '');
-}
-
-/* ----------- Upload handling (simulado, local) ----------- */
-$('#fileInput').addEventListener('change', async (e)=>{
-  const f = e.target.files[0];
-  if(!f) return;
-  if(f.size > 20*1024*1024){ $('#uploadStatus').textContent = '❗ Archivo muy grande (max 20MB)'; return; }
-  $('#uploadStatus').textContent = `✔︎ Archivo listo: ${f.name} (subida simulada)`;
-  // optional: create object URL preview
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(f);
-  link.textContent = 'Abrir (vista local)';
-  link.target = '_blank';
-  $('#uploadStatus').appendChild(document.createElement('br'));
-  $('#uploadStatus').appendChild(link);
-});
-
-/* ----------- Search filter ----------- */
-$('#searchInput').addEventListener('input', (e)=>{
-  const q = e.target.value.toLowerCase();
-  const items = $$('#courseList .course-item');
-  items.forEach((it, i) => {
-    const title = (coursesData[i].title||'').toLowerCase();
-    it.style.display = title.includes(q) ? '' : 'none';
-  });
-});
-
-/* ----------- Radial menu interactions ----------- */
-const hamburger = $('#hamburger');
-const radial = $('#radialMenu');
-let radialOpen = false;
-hamburger.addEventListener('click', ()=>{
-  radialOpen = !radialOpen;
-  radial.classList.toggle('open', radialOpen);
-  hamburger.textContent = radialOpen ? '✕' : '≡';
-});
-radial.querySelectorAll('a').forEach(a=>{
-  a.addEventListener('click', (ev)=>{
-    ev.preventDefault();
-    const action = a.dataset.action;
-    // map actions to sections
-    if(action === 'inicio') { selectCourse(-1); $('#centerTitle').textContent='Bienvenido'; $('#centerSubtitle').textContent='Selecciona un curso'; }
-    if(action === 'cursos') { if(coursesData.length) selectCourse(0); }
-    if(action === 'subir') { document.getElementById('fileInput').click(); }
-    if(action === 'info') alert('Dimension Webbin — Neon UI\nHecho para estudiantes.'); 
-    if(action === 'contact') window.open('mailto:tu-email@ejemplo.com');
-    // close
-    radialOpen = false; radial.classList.remove('open'); hamburger.textContent='≡';
-  });
-});
-
-/* ----------- IntersectionObserver for reveal animations ----------- */
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(ent=>{
-    if(ent.isIntersecting) ent.target.classList.add('show');
-  });
-},{threshold:0.12});
-function watchReveal(){
-  $$('.reveal').forEach(el => io.observe(el));
-}
-
-/* ----------- init ----------- */
-loadCourses().then(()=> setTimeout(watchReveal,400));
-
-/* accessible selection: if no course, show message */
-function selectCourse(i){
-  if(i < 0){ $('#centerTitle').textContent='Bienvenido'; $('#centerSubtitle').textContent='Selecciona un curso'; $('#weeksGrid').innerHTML=''; renderResources([]); $$('.course-item').forEach(it=>it.classList.remove('active')); return; }
-  // call original defined selectCourse (we declared earlier so call the function defined above)
-  // re-route to inner implementation
-  // but we already defined selectCourse earlier; ensure using that - so simply call the function:
-  window.scrollTo({top:0,behavior:'smooth'});
-  // call local selection:
-  selectCourseLocal(i);
-}
-
-/* small wrapper to avoid name conflict */
-function selectCourseLocal(i){
-  // reuse earlier implementation from above
-  activeCourseIndex = i;
-  $$('.course-item').forEach((el,idx)=> el.classList.toggle('active', idx===i));
-  const course = coursesData[i];
-  if(!course) return;
-  $('#centerTitle').textContent = course.title;
-  $('#centerSubtitle').textContent = course.description || '';
-  renderWeeks(course);
-  renderResources([]);
-}
-
-/* expose showWeekResources to global for small screens */
-window.showWeekResources = showWeekResources;
-</script>
+      setTimeout(() => {
+        statusText.textContent = '✅ Archivo subido correctamente (simulado).';
+        statusText.style.color = '#00ff99';
+      }, 1500);
+    });
+  </script>
 </body>
 </html>
