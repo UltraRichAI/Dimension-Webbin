@@ -276,30 +276,7 @@
         html += '</div>';
         content.innerHTML = html;
       } 
-        //de aqui empeze subir srchivo
-   else if (seccion === 'subir') {
-  content.innerHTML = `
-    <button class="theme-toggle" onclick="toggleTheme()">
-      ${body.classList.contains('light') ? '🌙 Modo Oscuro' : '☀️ Modo Claro'}
-    </button>
-
-    <header>
-      <h1>📤 Subir Archivos</h1>
-      <p>Sube aquí tus guías o tareas (se generará un enlace para compartir).</p>
-    </header>
-
-    <div style="text-align:center; margin-top:2rem;">
-      <input type="file" id="fileInput" style="margin-bottom: 10px; padding:5px;">
-      <br>
-      <button onclick="uploadFileWithProgress()" style="background:var(--accent-color); color:var(--bg-color); border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">🚀 Subir Archivo</button>
-
-      <div style="margin-top:20px; width:60%; max-width:400px; background:rgba(255,255,255,0.1); border-radius:10px; height:18px; margin-left:auto; margin-right:auto; overflow:hidden;">
-        <div id="progressBar" style="height:100%; width:0%; background:var(--accent-color); transition:width 0.3s;"></div>
-      </div>
-
-      <p id="uploadStatus" style="margin-top:1rem; font-weight:500;"></p>
-    </div>`;
-     // aqui termine
+  
 }
 
 }
@@ -319,56 +296,7 @@
           </div>`;
       }
     }
-// Muestra una barra animada que aumenta de tamaño conforme sube el archivo.
-    function uploadFileWithProgress() {
-  const fileInput = document.getElementById('fileInput');
-  const progressBar = document.getElementById('progressBar');
-  const status = document.getElementById('uploadStatus');
 
-  if (!fileInput.files.length) {
-    status.textContent = '⚠️ Por favor selecciona un archivo primero.';
-    return;
-  }
-
-  const file = fileInput.files[0];
-  const formData = new FormData();
-  formData.append('file', file);
-
-  status.textContent = '⏳ Subiendo archivo...';
-  progressBar.style.width = '0%';
-
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://file.io');
-
-  xhr.upload.addEventListener('progress', (e) => {
-    if (e.lengthComputable) {
-      const percent = (e.loaded / e.total) * 100;
-      progressBar.style.width = percent + '%';
-    }
-  });
-
-  xhr.onload = () => {
-    try {
-      const data = JSON.parse(xhr.responseText);
-      if (data.success) {
-        progressBar.style.width = '100%';
-        status.innerHTML = `✅ Archivo subido correctamente.<br>
-        <a href="${data.link}" target="_blank" style="color:var(--accent-color);">📎 Ver o compartir archivo</a>`;
-      } else {
-        status.textContent = '❌ Error al subir el archivo.';
-      }
-    } catch {
-      status.textContent = '❌ Error de respuesta del servidor.';
-    }
-  };
-
-  xhr.onerror = () => {
-    status.textContent = '❌ Error de conexión.';
-  };
-
-  xhr.send(formData);
-}
-// muestra barra animada
 
   </script>
 </body>
