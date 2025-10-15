@@ -1,24 +1,285 @@
 {
   "courses": [
     {
-      "title": "Filosofía",
-      "description": "Exploramos el pensamiento crítico, la lógica y las corrientes filosóficas.",
+      "title": "Arquitectura del Computador y Conectividad de Redes",
+      "description": "Estudio del hardware, componentes del computador y los fundamentos de las redes de comunicación.",
       "weeks": [
-        {
-          "week": 1,
-          "topic": "Introducción a la Filosofía",
-          "resources": [
-            {
-              "name": "Guía de lectura - Semana 1",
-              "url": "files/filosofia/semana1/guia.pdf"
-            },
-            {
-              "name": "Tarea resuelta - Semana 1",
-              "url": "files/filosofia/semana1/tarea.pdf"
-            }
-          ]
-        }
+        { "week": 1, "topic": "Tema Semana 1", "resources": [
+          { "name": "Guía de clase - Semana 1", "url": "files/arquitectura/semana1/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 1", "url": "files/arquitectura/semana1/tarea.pdf" }
+        ]},
+        { "week": 2, "topic": "Tema Semana 2", "resources": [
+          { "name": "Guía de clase - Semana 2", "url": "files/arquitectura/semana2/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 2", "url": "files/arquitectura/semana2/tarea.pdf" }
+        ]},
+        { "week": 3, "topic": "Tema Semana 3", "resources": [
+          { "name": "Guía de clase - Semana 3", "url": "files/arquitectura/semana3/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 3", "url": "files/arquitectura/semana3/tarea.pdf" }
+        ]},
+        { "week": 4, "topic": "Tema Semana 4", "resources": [
+          { "name": "Guía de clase - Semana 4", "url": "files/arquitectura/semana4/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 4", "url": "files/arquitectura/semana4/tarea.pdf" }
+        ]},
+        { "week": 5, "topic": "Tema Semana 5", "resources": [
+          { "name": "Guía de clase - Semana 5", "url": "files/arquitectura/semana5/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 5", "url": "files/arquitectura/semana5/tarea.pdf" }
+        ]},
+        { "week": 6, "topic": "Tema Semana 6", "resources": [
+          { "name": "Guía de clase - Semana 6", "url": "files/arquitectura/semana6/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 6", "url": "files/arquitectura/semana6/tarea.pdf" }
+        ]},
+        { "week": 7, "topic": "Tema Semana 7", "resources": [
+          { "name": "Guía de clase - Semana 7", "url": "files/arquitectura/semana7/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 7", "url": "files/arquitectura/semana7/tarea.pdf" }
+        ]},
+        { "week": 8, "topic": "Tema Semana 8", "resources": [
+          { "name": "Guía de clase - Semana 8", "url": "files/arquitectura/semana8/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 8", "url": "files/arquitectura/semana8/tarea.pdf" }
+        ]},
+        { "week": 9, "topic": "Tema Semana 9", "resources": [
+          { "name": "Guía de clase - Semana 9", "url": "files/arquitectura/semana9/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 9", "url": "files/arquitectura/semana9/tarea.pdf" }
+        ]},
+        { "week": 10, "topic": "Tema Semana 10", "resources": [
+          { "name": "Guía de clase - Semana 10", "url": "files/arquitectura/semana10/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 10", "url": "files/arquitectura/semana10/tarea.pdf" }
+        ]},
+        { "week": 11, "topic": "Tema Semana 11", "resources": [
+          { "name": "Guía de clase - Semana 11", "url": "files/arquitectura/semana11/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 11", "url": "files/arquitectura/semana11/tarea.pdf" }
+        ]},
+        { "week": 12, "topic": "Tema Semana 12", "resources": [
+          { "name": "Guía de clase - Semana 12", "url": "files/arquitectura/semana12/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 12", "url": "files/arquitectura/semana12/tarea.pdf" }
+        ]},
+        { "week": 13, "topic": "Tema Semana 13", "resources": [
+          { "name": "Guía de clase - Semana 13", "url": "files/arquitectura/semana13/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 13", "url": "files/arquitectura/semana13/tarea.pdf" }
+        ]},
+        { "week": 14, "topic": "Tema Semana 14", "resources": [
+          { "name": "Guía de clase - Semana 14", "url": "files/arquitectura/semana14/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 14", "url": "files/arquitectura/semana14/tarea.pdf" }
+        ]},
+        { "week": 15, "topic": "Tema Semana 15", "resources": [
+          { "name": "Guía de clase - Semana 15", "url": "files/arquitectura/semana15/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 15", "url": "files/arquitectura/semana15/tarea.pdf" }
+        ]},
+        { "week": 16, "topic": "Tema Semana 16", "resources": [
+          { "name": "Guía de clase - Semana 16", "url": "files/arquitectura/semana16/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 16", "url": "files/arquitectura/semana16/tarea.pdf" }
+        ]}
+      ]
+    },
+    {
+      "title": "Neurociencia y Educación",
+      "description": "Explora cómo el cerebro aprende, los procesos cognitivos y su aplicación en la educación.",
+      "weeks": [
+        { "week": 1, "topic": "Tema Semana 1", "resources": [
+          { "name": "Guía de clase - Semana 1", "url": "files/neurociencia/semana1/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 1", "url": "files/neurociencia/semana1/tarea.pdf" }
+        ]},
+        { "week": 2, "topic": "Tema Semana 2", "resources": [
+          { "name": "Guía de clase - Semana 2", "url": "files/neurociencia/semana2/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 2", "url": "files/neurociencia/semana2/tarea.pdf" }
+        ]},
+        { "week": 3, "topic": "Tema Semana 3", "resources": [
+          { "name": "Guía de clase - Semana 3", "url": "files/neurociencia/semana3/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 3", "url": "files/neurociencia/semana3/tarea.pdf" }
+        ]},
+        { "week": 4, "topic": "Tema Semana 4", "resources": [
+          { "name": "Guía de clase - Semana 4", "url": "files/neurociencia/semana4/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 4", "url": "files/neurociencia/semana4/tarea.pdf" }
+        ]},
+        { "week": 5, "topic": "Tema Semana 5", "resources": [
+          { "name": "Guía de clase - Semana 5", "url": "files/neurociencia/semana5/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 5", "url": "files/neurociencia/semana5/tarea.pdf" }
+        ]},
+        { "week": 6, "topic": "Tema Semana 6", "resources": [
+          { "name": "Guía de clase - Semana 6", "url": "files/neurociencia/semana6/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 6", "url": "files/neurociencia/semana6/tarea.pdf" }
+        ]},
+        { "week": 7, "topic": "Tema Semana 7", "resources": [
+          { "name": "Guía de clase - Semana 7", "url": "files/neurociencia/semana7/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 7", "url": "files/neurociencia/semana7/tarea.pdf" }
+        ]},
+        { "week": 8, "topic": "Tema Semana 8", "resources": [
+          { "name": "Guía de clase - Semana 8", "url": "files/neurociencia/semana8/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 8", "url": "files/neurociencia/semana8/tarea.pdf" }
+        ]},
+        { "week": 9, "topic": "Tema Semana 9", "resources": [
+          { "name": "Guía de clase - Semana 9", "url": "files/neurociencia/semana9/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 9", "url": "files/neurociencia/semana9/tarea.pdf" }
+        ]},
+        { "week": 10, "topic": "Tema Semana 10", "resources": [
+          { "name": "Guía de clase - Semana 10", "url": "files/neurociencia/semana10/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 10", "url": "files/neurociencia/semana10/tarea.pdf" }
+        ]},
+        { "week": 11, "topic": "Tema Semana 11", "resources": [
+          { "name": "Guía de clase - Semana 11", "url": "files/neurociencia/semana11/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 11", "url": "files/neurociencia/semana11/tarea.pdf" }
+        ]},
+        { "week": 12, "topic": "Tema Semana 12", "resources": [
+          { "name": "Guía de clase - Semana 12", "url": "files/neurociencia/semana12/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 12", "url": "files/neurociencia/semana12/tarea.pdf" }
+        ]},
+        { "week": 13, "topic": "Tema Semana 13", "resources": [
+          { "name": "Guía de clase - Semana 13", "url": "files/neurociencia/semana13/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 13", "url": "files/neurociencia/semana13/tarea.pdf" }
+        ]},
+        { "week": 14, "topic": "Tema Semana 14", "resources": [
+          { "name": "Guía de clase - Semana 14", "url": "files/neurociencia/semana14/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 14", "url": "files/neurociencia/semana14/tarea.pdf" }
+        ]},
+        { "week": 15, "topic": "Tema Semana 15", "resources": [
+          { "name": "Guía de clase - Semana 15", "url": "files/neurociencia/semana15/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 15", "url": "files/neurociencia/semana15/tarea.pdf" }
+        ]},
+        { "week": 16, "topic": "Tema Semana 16", "resources": [
+          { "name": "Guía de clase - Semana 16", "url": "files/neurociencia/semana16/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 16", "url": "files/neurociencia/semana16/tarea.pdf" }
+        ]}
+      ]
+    },
+    {
+      "title": "Taller de TICs para la Investigación",
+      "description": "Uso de herramientas digitales para búsqueda, análisis y presentación de información científica.",
+      "weeks": [
+        { "week": 1, "topic": "Tema Semana 1", "resources": [
+          { "name": "Guía de clase - Semana 1", "url": "files/tics/semana1/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 1", "url": "files/tics/semana1/tarea.pdf" }
+        ]},
+        { "week": 2, "topic": "Tema Semana 2", "resources": [
+          { "name": "Guía de clase - Semana 2", "url": "files/tics/semana2/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 2", "url": "files/tics/semana2/tarea.pdf" }
+        ]},
+        { "week": 3, "topic": "Tema Semana 3", "resources": [
+          { "name": "Guía de clase - Semana 3", "url": "files/tics/semana3/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 3", "url": "files/tics/semana3/tarea.pdf" }
+        ]},
+        { "week": 4, "topic": "Tema Semana 4", "resources": [
+          { "name": "Guía de clase - Semana 4", "url": "files/tics/semana4/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 4", "url": "files/tics/semana4/tarea.pdf" }
+        ]},
+        { "week": 5, "topic": "Tema Semana 5", "resources": [
+          { "name": "Guía de clase - Semana 5", "url": "files/tics/semana5/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 5", "url": "files/tics/semana5/tarea.pdf" }
+        ]},
+        { "week": 6, "topic": "Tema Semana 6", "resources": [
+          { "name": "Guía de clase - Semana 6", "url": "files/tics/semana6/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 6", "url": "files/tics/semana6/tarea.pdf" }
+        ]},
+        { "week": 7, "topic": "Tema Semana 7", "resources": [
+          { "name": "Guía de clase - Semana 7", "url": "files/tics/semana7/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 7", "url": "files/tics/semana7/tarea.pdf" }
+        ]},
+        { "week": 8, "topic": "Tema Semana 8", "resources": [
+          { "name": "Guía de clase - Semana 8", "url": "files/tics/semana8/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 8", "url": "files/tics/semana8/tarea.pdf" }
+        ]},
+        { "week": 9, "topic": "Tema Semana 9", "resources": [
+          { "name": "Guía de clase - Semana 9", "url": "files/tics/semana9/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 9", "url": "files/tics/semana9/tarea.pdf" }
+        ]},
+        { "week": 10, "topic": "Tema Semana 10", "resources": [
+          { "name": "Guía de clase - Semana 10", "url": "files/tics/semana10/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 10", "url": "files/tics/semana10/tarea.pdf" }
+        ]},
+        { "week": 11, "topic": "Tema Semana 11", "resources": [
+          { "name": "Guía de clase - Semana 11", "url": "files/tics/semana11/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 11", "url": "files/tics/semana11/tarea.pdf" }
+        ]},
+        { "week": 12, "topic": "Tema Semana 12", "resources": [
+          { "name": "Guía de clase - Semana 12", "url": "files/tics/semana12/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 12", "url": "files/tics/semana12/tarea.pdf" }
+        ]},
+        { "week": 13, "topic": "Tema Semana 13", "resources": [
+          { "name": "Guía de clase - Semana 13", "url": "files/tics/semana13/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 13", "url": "files/tics/semana13/tarea.pdf" }
+        ]},
+        { "week": 14, "topic": "Tema Semana 14", "resources": [
+          { "name": "Guía de clase - Semana 14", "url": "files/tics/semana14/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 14", "url": "files/tics/semana14/tarea.pdf" }
+        ]},
+        { "week": 15, "topic": "Tema Semana 15", "resources": [
+          { "name": "Guía de clase - Semana 15", "url": "files/tics/semana15/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 15", "url": "files/tics/semana15/tarea.pdf" }
+        ]},
+        { "week": 16, "topic": "Tema Semana 16", "resources": [
+          { "name": "Guía de clase - Semana 16", "url": "files/tics/semana16/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 16", "url": "files/tics/semana16/tarea.pdf" }
+        ]}
+      ]
+    },
+    {
+      "title": "Telecomunicaciones II y Telefonía",
+      "description": "Profundiza en redes de comunicación, sistemas de telefonía y transmisión de datos.",
+      "weeks": [
+        { "week": 1, "topic": "Tema Semana 1", "resources": [
+          { "name": "Guía de clase - Semana 1", "url": "files/telecomunicaciones/semana1/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 1", "url": "files/telecomunicaciones/semana1/tarea.pdf" }
+        ]},
+        { "week": 2, "topic": "Tema Semana 2", "resources": [
+          { "name": "Guía de clase - Semana 2", "url": "files/telecomunicaciones/semana2/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 2", "url": "files/telecomunicaciones/semana2/tarea.pdf" }
+        ]},
+        { "week": 3, "topic": "Tema Semana 3", "resources": [
+          { "name": "Guía de clase - Semana 3", "url": "files/telecomunicaciones/semana3/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 3", "url": "files/telecomunicaciones/semana3/tarea.pdf" }
+        ]},
+        { "week": 4, "topic": "Tema Semana 4", "resources": [
+          { "name": "Guía de clase - Semana 4", "url": "files/telecomunicaciones/semana4/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 4", "url": "files/telecomunicaciones/semana4/tarea.pdf" }
+        ]},
+        { "week": 5, "topic": "Tema Semana 5", "resources": [
+          { "name": "Guía de clase - Semana 5", "url": "files/telecomunicaciones/semana5/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 5", "url": "files/telecomunicaciones/semana5/tarea.pdf" }
+        ]},
+        { "week": 6, "topic": "Tema Semana 6", "resources": [
+          { "name": "Guía de clase - Semana 6", "url": "files/telecomunicaciones/semana6/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 6", "url": "files/telecomunicaciones/semana6/tarea.pdf" }
+        ]},
+        { "week": 7, "topic": "Tema Semana 7", "resources": [
+          { "name": "Guía de clase - Semana 7", "url": "files/telecomunicaciones/semana7/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 7", "url": "files/telecomunicaciones/semana7/tarea.pdf" }
+        ]},
+        { "week": 8, "topic": "Tema Semana 8", "resources": [
+          { "name": "Guía de clase - Semana 8", "url": "files/telecomunicaciones/semana8/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 8", "url": "files/telecomunicaciones/semana8/tarea.pdf" }
+        ]},
+        { "week": 9, "topic": "Tema Semana 9", "resources": [
+          { "name": "Guía de clase - Semana 9", "url": "files/telecomunicaciones/semana9/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 9", "url": "files/telecomunicaciones/semana9/tarea.pdf" }
+        ]},
+        { "week": 10, "topic": "Tema Semana 10", "resources": [
+          { "name": "Guía de clase - Semana 10", "url": "files/telecomunicaciones/semana10/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 10", "url": "files/telecomunicaciones/semana10/tarea.pdf" }
+        ]},
+        { "week": 11, "topic": "Tema Semana 11", "resources": [
+          { "name": "Guía de clase - Semana 11", "url": "files/telecomunicaciones/semana11/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 11", "url": "files/telecomunicaciones/semana11/tarea.pdf" }
+        ]},
+        { "week": 12, "topic": "Tema Semana 12", "resources": [
+          { "name": "Guía de clase - Semana 12", "url": "files/telecomunicaciones/semana12/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 12", "url": "files/telecomunicaciones/semana12/tarea.pdf" }
+        ]},
+        { "week": 13, "topic": "Tema Semana 13", "resources": [
+          { "name": "Guía de clase - Semana 13", "url": "files/telecomunicaciones/semana13/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 13", "url": "files/telecomunicaciones/semana13/tarea.pdf" }
+        ]},
+        { "week": 14, "topic": "Tema Semana 14", "resources": [
+          { "name": "Guía de clase - Semana 14", "url": "files/telecomunicaciones/semana14/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 14", "url": "files/telecomunicaciones/semana14/tarea.pdf" }
+        ]},
+        { "week": 15, "topic": "Tema Semana 15", "resources": [
+          { "name": "Guía de clase - Semana 15", "url": "files/telecomunicaciones/semana15/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 15", "url": "files/telecomunicaciones/semana15/tarea.pdf" }
+        ]},
+        { "week": 16, "topic": "Tema Semana 16", "resources": [
+          { "name": "Guía de clase - Semana 16", "url": "files/telecomunicaciones/semana16/guia.pdf" },
+          { "name": "Tarea resuelta - Semana 16", "url": "files/telecomunicaciones/semana16/tarea.pdf" }
+        ]}
       ]
     }
   ]
 }
+
