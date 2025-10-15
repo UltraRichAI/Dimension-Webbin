@@ -1,50 +1,24 @@
-[
-  {
-    "name": "Neurociencia",
-    "weeks": [
-      {
-        "title": "Semana 1 - Introducción a la Neurociencia",
-        "link": "files/filosofia/semana1/guia.pdf"
-      },
-      {
-        "title": "Semana 2 - Razonamiento lógico y pensamiento crítico",
-        "link": "files/filosofia/semana2/tarea.pdf"
-      },
-      {
-        "title": "Semana 3 - Ética y moral",
-        "link": "files/filosofia/semana3/apuntes.pdf"
-      }
-    ]
-  },
-  {
-    "name": "Programación Básica",
-    "weeks": [
-      {
-        "title": "Semana 1 - Fundamentos de programación y variables",
-        "link": "files/programacion/semana1/apuntes.pdf"
-      },
-      {
-        "title": "Semana 2 - Condicionales y operadores lógicos",
-        "link": "files/programacion/semana2/tarea.pdf"
-      },
-      {
-        "title": "Semana 3 - Bucles y estructuras repetitivas",
-        "link": "files/programacion/semana3/ejemplo.pdf"
-      }
-    ]
-  },
-  {
-    "name": "Matemática Aplicada",
-    "weeks": [
-      {
-        "title": "Semana 1 - Álgebra y funciones",
-        "link": "files/matematica/semana1/guia.pdf"
-      },
-      {
-        "title": "Semana 2 - Trigonometría aplicada",
-        "link": "files/matematica/semana2/practica.pdf"
-      }
-    ]
-  }
-]
-
+{
+  "courses": [
+    {
+      "title": "Filosofía",
+      "description": "Exploramos el pensamiento crítico, la lógica y las corrientes filosóficas.",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Introducción a la Filosofía",
+          "resources": [
+            {
+              "name": "Guía de lectura - Semana 1",
+              "url": "files/filosofia/semana1/guia.pdf"
+            },
+            {
+              "name": "Tarea resuelta - Semana 1",
+              "url": "files/filosofia/semana1/tarea.pdf"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
