@@ -72,7 +72,7 @@
     },
     {
       "title": "Neurociencia y Educación",
-      "description": "Explora cómo el cerebro aprende, los procesos cognitivos y su aplicación en la educación.",
+      "description": "Explora ",
       "weeks": [
         { "week": 1, "topic": "Tema Semana 1", "resources": [
           { "name": "Guía de clase - Semana 1", "url": "files/neurociencia/semana1/guia.pdf" },
@@ -90,7 +90,7 @@
           { "name": "Guía de clase - Semana 4", "url": "files/neurociencia/semana4/guia.pdf" },
           { "name": "Tarea resuelta - Semana 4", "url": "files/neurociencia/semana4/tarea.pdf" }
         ]},
-        { "week": 5, "topic": "Tema Semana 5", "resources": [
+        { "week": 5, "topic": "Tema Semana 5 UNIDAD 02", "resources": [
           { "name": "Guía de clase - Semana 5", "url": "files/neurociencia/semana5/guia.pdf" },
           { "name": "Tarea resuelta - Semana 5", "url": "files/neurociencia/semana5/tarea.pdf" }
         ]},
