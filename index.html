@@ -276,11 +276,18 @@
         html += '</div>';
         content.innerHTML = html;
       } 
-  
-}
-
-}
-
+      else if (seccion === 'subir') {
+        content.innerHTML = `
+          <button class="theme-toggle" onclick="toggleTheme()">${body.classList.contains('light') ? '🌙 Modo Oscuro' : '☀️ Modo Claro'}</button>
+          <header>
+            <h1>📤 Subir Archivos</h1>
+            <p>Sube tus guías o tareas (usa GitHub para adjuntar tus PDFs en las carpetas correspondientes).</p>
+          </header>
+          <div style="text-align:center; margin-top:2rem;">
+            <p><strong>Paso 1:</strong> Ve a tu repositorio en GitHub → "Add file" → "Upload files".</p>
+            <p><strong>Paso 2:</strong> Sube el PDF en la carpeta correcta (por ejemplo <code>files/arquitectura/semana3/</code>).</p>
+            <p><strong>Paso 3:</strong> Actualiza la página para verlo reflejado aquí.</p>
+          </div>`;
       } 
       else if (seccion === 'info') {
         content.innerHTML = `
@@ -296,8 +303,6 @@
           </div>`;
       }
     }
-
-
   </script>
 </body>
 </html>
