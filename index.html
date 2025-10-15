@@ -1,98 +1,111 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dimension Webbin — Mis Cursos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Cursos Universitarios</title>
   <style>
-    :root {
-      --accent:#007bff;
-      --bg:#f4f7fb;
-      --card:#fff;
-      --muted:#666;
-      --radius:14px;
-      --shadow:0 5px 15px rgba(0,0,0,0.08);
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(120deg, #1e1f29, #3a3d5c);
+      color: #fff;
+      min-height: 100vh;
     }
-    *{box-sizing:border-box;font-family:Inter,Segoe UI,Arial,sans-serif;}
-    body{margin:0;background:var(--bg);color:#222;display:flex;justify-content:center;padding:25px;}
-    .container{max-width:1100px;width:100%;}
-    header{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
-    header img{width:48px;height:48px;border-radius:12px;}
-    header h1{font-size:22px;margin:0;}
-    .small{color:var(--muted);font-size:14px;}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
-    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;}
-    .course-title{font-weight:600;display:flex;align-items:center;gap:8px;margin-bottom:8px;}
-    .meta{font-size:13px;color:var(--muted);}
-    ul.weeks{list-style:none;padding:0;margin:10px 0 0;}
-    ul.weeks li{background:#fafbff;border-radius:8px;padding:8px;margin-bottom:6px;}
-    a.link{color:var(--accent);text-decoration:none;font-size:14px;}
-    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px;}
-    .file-list{display:flex;flex-direction:column;gap:4px;margin-top:6px;}
-    .file-item{display:flex;justify-content:space-between;align-items:center;background:#f8faff;padding:6px 8px;border-radius:8px;}
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    header h1 {
+      font-size: 2rem;
+      color: #ffcc00;
+    }
+    header p {
+      color: #ddd;
+      font-size: 1rem;
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      justify-items: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+    .card h2 {
+      color: #ffcc00;
+      font-size: 1.2rem;
+    }
+    .week-list {
+      margin-top: 1rem;
+      text-align: left;
+    }
+    .week-list a {
+      display: block;
+      padding: 0.4rem 0;
+      color: #aad8ff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .week-list a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background: rgba(0, 0, 0, 0.4);
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Logo GitHub">
-      <div>
-        <h1>Dimension Webbin — Mis Cursos</h1>
-        <div class="small">Organiza tus temas y tareas del semestre.</div>
-      </div>
-    </header>
-
-    <main id="main">
-      <div id="loading" class="small">Cargando cursos...</div>
-      <div id="grid" class="grid" style="display:none"></div>
-    </main>
-
-    <footer>
-      © 2025 Dimension Webbin · Desarrollado por UltraRichAI
-    </footer>
-  </div>
+  <header>
+    <h1>🌐 Dimension Webbin</h1>
+    <p>Mi espacio personal para organizar mis cursos universitarios</p>
+  </header>
+  <main id="courseContainer"></main>
+  <footer>
+    © 2025 - Creado por [Tu Nombre]. Todos los derechos reservados.
+  </footer>
 
   <script>
-    async function loadCourses(){
-      const res = await fetch('./courses.json?t=' + Date.now());
-      const data = await res.json();
-      const grid = document.getElementById('grid');
-      const loading = document.getElementById('loading');
-      loading.style.display = 'none';
-      grid.style.display = 'grid';
-      
-      data.courses.forEach(course=>{
-        const card=document.createElement('div');
-        card.className='card';
-        card.innerHTML=`
-          <div class="course-title">${course.icon||'📘'} ${course.name}</div>
-          <div class="meta">${course.code||''} · ${course.professor||''}</div>
+    async function loadCourses() {
+      const res = await fetch('courses.json');
+      const courses = await res.json();
+      const container = document.getElementById('courseContainer');
+
+      courses.forEach(course => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h2>${course.name}</h2>
+          <div class="week-list">
+            ${course.weeks.map(week => 
+              `<a href="${week.link}" target="_blank">📘 ${week.title}</a>`
+            ).join('')}
+          </div>
         `;
-        const list=document.createElement('ul');
-        list.className='weeks';
-        course.weeks.forEach(week=>{
-          const li=document.createElement('li');
-          li.innerHTML=`<strong>${week.title}</strong><br><span class="small">${week.desc||''}</span>`;
-          if(week.files&&week.files.length){
-            const fileList=document.createElement('div');
-            fileList.className='file-list';
-            week.files.forEach(f=>{
-              const file=document.createElement('div');
-              file.className='file-item';
-              file.innerHTML=`<span>${f.name}</span><a class="link" href="${f.url}" target="_blank">Abrir</a>`;
-              fileList.appendChild(file);
-            });
-            li.appendChild(fileList);
-          }
-          list.appendChild(li);
-        });
-        card.appendChild(list);
-        grid.appendChild(card);
+        container.appendChild(card);
       });
     }
-    loadCourses().catch(err=>{
-      document.getElementById('loading').textContent='Error cargando datos: '+err;
-    });
+    loadCourses();
   </script>
 </body>
 </html>
