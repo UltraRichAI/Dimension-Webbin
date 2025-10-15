@@ -104,7 +104,7 @@
         ]},
         { "week": 8, "topic": "Examen Parcial", "resources": [
           { "name": "Guía de Examen - Semana 8", "url": "files/neurociencia/semana8/guia.pdf" },
-          { "name": "Tarea Resuelto - Semana 8", "url": "files/neurociencia/semana8/tarea.pdf" }
+          { "name": "Examen Resuelto - Semana 8", "url": "files/neurociencia/semana8/tarea.pdf" }
         ]},
         { "week": 9, "topic": "Tema Semana 9", "resources": [
           { "name": "Guía de clase - Semana 9", "url": "files/neurociencia/semana9/guia.pdf" },
