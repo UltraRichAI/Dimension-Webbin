@@ -1,331 +1,199 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Espacio Universitario</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plataforma de Cursos Virtuales</title>
   <style>
     :root {
-      --bg-color: #0f172a;
-      --sidebar-color: #1e293b;
-      --text-color: #e2e8f0;
-      --accent-color: #00d9ff;
-      --card-bg: rgba(255,255,255,0.05);
-      --week-bg: rgba(255,255,255,0.07);
-    }
-
-    body.light {
-      --bg-color: #f1f5f9;
-      --sidebar-color: #ffffff;
-      --text-color: #0f172a;
-      --accent-color: #0077b6;
-      --card-bg: rgba(0,0,0,0.05);
-      --week-bg: rgba(0,0,0,0.07);
+      --primary-color: #2a2d3e;
+      --secondary-color: #3c3f58;
+      --accent-color: #00c4cc;
+      --text-color: #ffffff;
+      --highlight: #ffca28;
     }
 
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      background: var(--bg-color);
+      font-family: "Poppins", sans-serif;
+      background-color: var(--primary-color);
       color: var(--text-color);
-      height: 100vh;
       overflow: hidden;
-      transition: background 0.5s, color 0.5s;
     }
 
+    /* --- Layout principal --- */
+    .layout {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* --- Sidebar --- */
     .sidebar {
       width: 250px;
-      background: var(--sidebar-color);
+      background-color: var(--secondary-color);
+      padding: 20px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: 0.3s;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
     }
 
     .sidebar h2 {
       text-align: center;
-      padding: 1.5rem 0;
+      margin-bottom: 20px;
       color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .course-list {
+      list-style: none;
+      padding: 0;
       margin: 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .menu {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-    }
-
-    .menu a {
-      text-decoration: none;
-      color: var(--text-color);
-      padding: 10px 15px;
-      margin-bottom: 8px;
+    .course-list li {
+      padding: 10px;
+      background: #4a4e69;
+      margin-bottom: 10px;
       border-radius: 8px;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .menu a:hover, .menu a.active {
-      background: var(--accent-color);
-      color: var(--bg-color);
-      transform: translateX(5px);
-    }
-
-    .footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .content {
-      flex-grow: 1;
-      overflow-y: auto;
-      padding: 2rem;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      color: var(--accent-color);
-      margin-bottom: 0.3rem;
-    }
-
-    header p {
-      color: #94a3b8;
-    }
-
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-
-    .course-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 15px;
-      padding: 1.5rem;
+      cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      text-align: center;
     }
 
-    .course-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 25px var(--accent-color);
+    .course-list li:hover {
+      background: var(--accent-color);
+      color: #000;
     }
 
-    .course-card h2 {
-      color: var(--accent-color);
-      margin-bottom: 0.5rem;
-      font-size: 1.4rem;
+    /* --- Panel principal --- */
+    .content {
+      flex: 1;
+      background: #1e1f29;
+      padding: 30px;
+      overflow-y: auto;
     }
 
+    .content h2 {
+      color: var(--highlight);
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
+
+    /* --- Semanas --- */
     .week {
-      background: var(--week-bg);
-      padding: 0.8rem;
-      margin-top: 1rem;
+      background: var(--secondary-color);
+      margin-bottom: 15px;
+      padding: 15px;
       border-radius: 10px;
-      transition: background 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
     }
 
     .week:hover {
-      background: rgba(0,217,255,0.2);
+      transform: scale(1.02);
     }
 
-   .resources a {
-  display: inline-block;
-  margin-right: 10px;
-  margin-top: 5px;
-  text-decoration: none;
-  color: #fff;
-  background: var(--accent-color);
-  padding: 6px 10px;
-  border-radius: 5px;
-  transition: 0.3s;
-  font-size: 0.9rem;
-}
+    .week h3 {
+      margin-top: 0;
+      color: var(--accent-color);
+      font-size: 1.2rem;
+    }
 
-/* 🔥 Aquí va el código separado correctamente */
-.week-row {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
+    .week-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-.week-row .resources {
-  margin-top: 0 !important; /* Quita el salto arriba de los botones */
-}
+    .resources {
+      margin-top: 10px;
+    }
 
-}
-.week-row .resources {
-  margin-top: 0 !important; /* Quita el salto arriba de los botones */
-}
-
+    .resources a {
+      display: inline-block;
+      margin-right: 10px;
+      margin-top: 5px;
+      text-decoration: none;
+      color: #fff;
+      background: var(--accent-color);
+      padding: 6px 10px;
+      border-radius: 5px;
+      transition: 0.3s;
+      font-size: 0.9rem;
     }
 
     .resources a:hover {
-      background: #00b8d4;
-      transform: scale(1.05);
+      background: #00a2a8;
     }
 
-    /* Botón modo oscuro/claro */
-    .theme-toggle {
-      position: absolute;
-      top: 15px;
-      right: 20px;
+    /* --- Área de subida --- */
+    .upload-box {
+      background: #2e3047;
+      border: 2px dashed #00c4cc;
+      border-radius: 10px;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      color: #aaa;
+      transition: background 0.3s;
+    }
+
+    .upload-box:hover {
+      background: #353853;
+    }
+
+    .upload-box input[type="file"] {
+      display: none;
+    }
+
+    .upload-box label {
+      display: inline-block;
+      padding: 10px 15px;
       background: var(--accent-color);
-      color: var(--bg-color);
-      border: none;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-size: 0.9rem;
+      color: #000;
+      border-radius: 5px;
       cursor: pointer;
-      transition: 0.3s;
+      margin-top: 10px;
+      font-weight: bold;
     }
 
-    .theme-toggle:hover {
-      opacity: 0.9;
-      transform: scale(1.05);
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #15161d;
+      color: #777;
+      font-size: 0.8rem;
     }
-
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .menu {
-        flex-direction: row;
-        overflow-x: auto;
-      }
-      .content {
-        padding: 1rem;
-      }
-    }
-    .layout {
-  display: flex;
-  height: 100vh;
-}
-
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <div>
-      <h2>🎓 Panel</h2>
-      <div class="menu">
-        <a href="#" class="active" onclick="mostrarSeccion('inicio')">🏠 Inicio</a>
-        <a href="#" onclick="mostrarSeccion('cursos')">📘 Mis Cursos</a>
-        <a href="#" onclick="mostrarSeccion('subir')">📤 Subir Archivos</a>
-        <a href="#" onclick="mostrarSeccion('info')">ℹ️ Información</a>
+  <div class="layout">
+    <div class="sidebar">
+      <div>
+        <h2>Cursos</h2>
+        <ul class="course-list" id="courseList"></ul>
+      </div>
+      <footer>
+        © 2025 Plataforma Virtual<br>Desarrollado por Jhovan
+      </footer>
+    </div>
+
+    <div class="content" id="main-content">
+      <h2>Selecciona un curso para comenzar</h2>
+      <p>En esta plataforma podrás acceder a las guías de clase, materiales complementarios y subir tus tareas resueltas.</p>
+
+      <div class="upload-box">
+        <h3>Sube tu tarea aquí</h3>
+        <p>Arrastra tu archivo PDF o haz clic en el botón</p>
+        <input type="file" id="fileUpload" accept=".pdf" />
+        <label for="fileUpload">Seleccionar archivo</label>
       </div>
     </div>
-    <div class="footer">
-      <p>© 2025 Mi Espacio Universitario</p>
-    </div>
   </div>
 
-  <div class="content" id="main-content">
-    <button class="theme-toggle" onclick="toggleTheme()">🌙 Modo Claro</button>
-    <header>
-      <h1>Bienvenido a tu espacio universitario</h1>
-      <p>Aquí podrás organizar tus cursos, guías y tareas.</p>
-    </header>
-  </div>
-
-  <script>
-    // Modo Oscuro/Claro
-    const body = document.body;
-    const btn = document.querySelector('.theme-toggle');
-
-    function toggleTheme() {
-      body.classList.toggle('light');
-      const modo = body.classList.contains('light') ? 'claro' : 'oscuro';
-      localStorage.setItem('modo', modo);
-      btn.textContent = modo === 'claro' ? '🌙 Modo Oscuro' : '☀️ Modo Claro';
-    }
-
-    // Restaurar modo guardado
-    const modoGuardado = localStorage.getItem('modo');
-    if (modoGuardado === 'claro') {
-      body.classList.add('light');
-      btn.textContent = '🌙 Modo Oscuro';
-    }
-
-    async function mostrarSeccion(seccion) {
-      const content = document.getElementById('main-content');
-      document.querySelectorAll('.menu a').forEach(a => a.classList.remove('active'));
-      event.target.classList.add('active');
-
-      if (seccion === 'inicio') {
-        content.innerHTML = `
-          <button class="theme-toggle" onclick="toggleTheme()">${body.classList.contains('light') ? '🌙 Modo Oscuro' : '☀️ Modo Claro'}</button>
-          <header>
-            <h1>Bienvenido 👋</h1>
-            <p>Selecciona una opción del panel lateral para empezar.</p>
-          </header>`;
-      } 
-      else if (seccion === 'cursos') {
-        const res = await fetch('courses.json');
-        const data = await res.json();
-        let html = `<button class="theme-toggle" onclick="toggleTheme()">${body.classList.contains('light') ? '🌙 Modo Oscuro' : '☀️ Modo Claro'}</button>
-        <header><h1>📘 Mis Cursos</h1><p>Selecciona tus recursos por semana.</p></header>`;
-        html += '<div class="container">';
-        data.courses.forEach(curso => {
-          html += `
-            <div class="course-card">
-              <h2>${curso.title}</h2>
-              <p>${curso.description}</p>
-              ${curso.weeks.map(sem => `
-                <div class="week">
-                  <strong>Semana ${sem.week}:</strong> ${sem.topic}
-                  <div class="resources">
-                    ${sem.resources.map(r => `<a href="${r.url}" target="_blank">📄 ${r.name}</a>`).join('')}
-                  </div>
-                </div>`).join('')}
-            </div>`;
-        });
-        html += '</div>';
-        content.innerHTML = html;
-      } 
-      else if (seccion === 'subir') {
-        content.innerHTML = `
-          <button class="theme-toggle" onclick="toggleTheme()">${body.classList.contains('light') ? '🌙 Modo Oscuro' : '☀️ Modo Claro'}</button>
-          <header>
-            <h1>📤 Subir Archivos</h1>
-            <p>Sube tus guías o tareas (usa GitHub para adjuntar tus PDFs en las carpetas correspondientes).</p>
-          </header>
-          <div style="text-align:center; margin-top:2rem;">
-            <p><strong>Paso 1:</strong> Ve a tu repositorio en GitHub → "Add file" → "Upload files".</p>
-            <p><strong>Paso 2:</strong> Sube el PDF en la carpeta correcta (por ejemplo <code>files/arquitectura/semana3/</code>).</p>
-            <p><strong>Paso 3:</strong> Actualiza la página para verlo reflejado aquí.</p>
-          </div>`;
-      } 
-      else if (seccion === 'info') {
-        content.innerHTML = `
-          <button class="theme-toggle" onclick="toggleTheme()">${body.classList.contains('light') ? '🌙 Modo Oscuro' : '☀️ Modo Claro'}</button>
-          <header>
-            <h1>ℹ️ Información</h1>
-            <p>Proyecto personal desarrollado por un estudiante universitario para organizar sus cursos.</p>
-          </header>
-          <div style="text-align:center; margin-top:2rem;">
-            <p>Versión: <strong>1.0</strong></p>
-            <p>Plataforma: <strong>GitHub Pages</strong></p>
-            <p>Tecnologías: <strong>HTML, CSS, JavaScript, JSON</strong></p>
-          </div>`;
-      }
-    }
-  </script>
+  <script src="cursos.js"></script>
 </body>
 </html>
