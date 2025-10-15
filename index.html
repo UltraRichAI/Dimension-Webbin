@@ -140,22 +140,30 @@
       background: rgba(0,217,255,0.2);
     }
 
-    .resources a {
-      display: inline-block;
-      margin-right: 10px;
-      margin-top: 5px;
-      text-decoration: none;
-      color: #fff;
-      background: var(--accent-color);
-      padding: 6px 10px;
-      border-radius: 5px;
-      transition: 0.3s;
-      font-size: 0.9rem;
-      /*codigo ultimo*/
-      .week-row {
+   .resources a {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 5px;
+  text-decoration: none;
+  color: #fff;
+  background: var(--accent-color);
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+
+/* 🔥 Aquí va el código separado correctamente */
+.week-row {
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+.week-row .resources {
+  margin-top: 0 !important; /* Quita el salto arriba de los botones */
+}
+
 }
 .week-row .resources {
   margin-top: 0 !important; /* Quita el salto arriba de los botones */
