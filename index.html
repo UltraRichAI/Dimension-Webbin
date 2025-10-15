@@ -3,197 +3,340 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plataforma de Cursos Virtuales</title>
+  <title>Mi Espacio Universitario</title>
   <style>
+    /* 🎨 Estilos generales */
     :root {
-      --primary-color: #2a2d3e;
-      --secondary-color: #3c3f58;
-      --accent-color: #00c4cc;
-      --text-color: #ffffff;
-      --highlight: #ffca28;
+      --bg-color: #0f172a;
+      --sidebar-color: #1e293b;
+      --text-color: #e2e8f0;
+      --accent-color: #00d9ff;
+      --card-bg: rgba(255,255,255,0.05);
+      --week-bg: rgba(255,255,255,0.08);
+    }
+
+    body.light {
+      --bg-color: #f1f5f9;
+      --sidebar-color: #ffffff;
+      --text-color: #0f172a;
+      --accent-color: #0077b6;
+      --card-bg: rgba(0,0,0,0.05);
+      --week-bg: rgba(0,0,0,0.07);
     }
 
     body {
       margin: 0;
-      font-family: "Poppins", sans-serif;
-      background-color: var(--primary-color);
-      color: var(--text-color);
-      overflow: hidden;
-    }
-
-    /* --- Layout principal --- */
-    .layout {
+      font-family: 'Poppins', sans-serif;
       display: flex;
+      background: var(--bg-color);
+      color: var(--text-color);
       height: 100vh;
+      overflow: hidden;
+      transition: background 0.4s, color 0.4s;
     }
 
-    /* --- Sidebar --- */
+    /* 📂 Sidebar */
     .sidebar {
-      width: 250px;
-      background-color: var(--secondary-color);
-      padding: 20px;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+      width: 260px;
+      background: var(--sidebar-color);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+      transition: 0.3s;
     }
 
     .sidebar h2 {
       text-align: center;
-      margin-bottom: 20px;
-      color: var(--accent-color);
-      font-weight: 600;
-    }
-
-    .course-list {
-      list-style: none;
-      padding: 0;
+      padding: 1.5rem 0;
       margin: 0;
-    }
-
-    .course-list li {
-      padding: 10px;
-      background: #4a4e69;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      text-align: center;
-    }
-
-    .course-list li:hover {
-      background: var(--accent-color);
-      color: #000;
-    }
-
-    /* --- Panel principal --- */
-    .content {
-      flex: 1;
-      background: #1e1f29;
-      padding: 30px;
-      overflow-y: auto;
-    }
-
-    .content h2 {
-      color: var(--highlight);
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 1.6rem;
-    }
-
-    /* --- Semanas --- */
-    .week {
-      background: var(--secondary-color);
-      margin-bottom: 15px;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s;
-    }
-
-    .week:hover {
-      transform: scale(1.02);
-    }
-
-    .week h3 {
-      margin-top: 0;
       color: var(--accent-color);
-      font-size: 1.2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .week-row {
+    .menu {
       display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      padding: 1rem;
+      flex-grow: 1;
     }
 
-    .resources {
-      margin-top: 10px;
+    .menu a {
+      text-decoration: none;
+      color: var(--text-color);
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      transition: 0.3s;
+    }
+
+    .menu a:hover,
+    .menu a.active {
+      background: var(--accent-color);
+      color: var(--bg-color);
+      transform: translateX(5px);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      opacity: 0.8;
+    }
+
+    /* 📘 Contenido principal */
+    .content {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 2rem;
+      position: relative;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      color: var(--accent-color);
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    header p {
+      color: #94a3b8;
+    }
+
+    /* 💠 Tarjetas de cursos */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px var(--accent-color);
+    }
+
+    .course-card h2 {
+      color: var(--accent-color);
+      margin-bottom: 0.6rem;
+    }
+
+    .week {
+      background: var(--week-bg);
+      padding: 0.8rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    .week strong {
+      display: block;
+      margin-bottom: 5px;
     }
 
     .resources a {
       display: inline-block;
-      margin-right: 10px;
-      margin-top: 5px;
-      text-decoration: none;
-      color: #fff;
       background: var(--accent-color);
-      padding: 6px 10px;
-      border-radius: 5px;
-      transition: 0.3s;
+      color: var(--bg-color);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin: 5px 5px 0 0;
       font-size: 0.9rem;
+      transition: 0.3s;
     }
 
     .resources a:hover {
-      background: #00a2a8;
+      opacity: 0.9;
+      transform: scale(1.05);
     }
 
-    /* --- Área de subida --- */
-    .upload-box {
-      background: #2e3047;
-      border: 2px dashed #00c4cc;
-      border-radius: 10px;
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-      color: #aaa;
-      transition: background 0.3s;
-    }
-
-    .upload-box:hover {
-      background: #353853;
-    }
-
-    .upload-box input[type="file"] {
-      display: none;
-    }
-
-    .upload-box label {
-      display: inline-block;
-      padding: 10px 15px;
+    /* 🌗 Botón modo claro/oscuro */
+    .theme-toggle {
+      position: absolute;
+      top: 15px;
+      right: 20px;
       background: var(--accent-color);
-      color: #000;
-      border-radius: 5px;
+      color: var(--bg-color);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
       cursor: pointer;
-      margin-top: 10px;
-      font-weight: bold;
+      transition: 0.3s;
     }
 
-    footer {
+    .theme-toggle:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+
+    /* 📱 Responsive */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .menu {
+        flex-direction: row;
+        overflow-x: auto;
+      }
+
+      .content {
+        padding: 1rem;
+      }
+    }
+
+    /* ⬆️ Área de subida */
+    .upload-area {
+      border: 2px dashed var(--accent-color);
+      border-radius: 15px;
+      padding: 2rem;
       text-align: center;
-      padding: 10px;
-      background: #15161d;
-      color: #777;
-      font-size: 0.8rem;
+      color: var(--accent-color);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .upload-area:hover {
+      background: rgba(0,217,255,0.1);
     }
   </style>
 </head>
+
 <body>
-  <div class="layout">
-    <div class="sidebar">
-      <div>
-        <h2>Cursos</h2>
-        <ul class="course-list" id="courseList"></ul>
-      </div>
-      <footer>
-        © 2025 Plataforma Virtual<br>Desarrollado por Jhovan
-      </footer>
-    </div>
-
-    <div class="content" id="main-content">
-      <h2>Selecciona un curso para comenzar</h2>
-      <p>En esta plataforma podrás acceder a las guías de clase, materiales complementarios y subir tus tareas resueltas.</p>
-
-      <div class="upload-box">
-        <h3>Sube tu tarea aquí</h3>
-        <p>Arrastra tu archivo PDF o haz clic en el botón</p>
-        <input type="file" id="fileUpload" accept=".pdf" />
-        <label for="fileUpload">Seleccionar archivo</label>
+  <!-- 📚 Panel lateral -->
+  <div class="sidebar">
+    <div>
+      <h2>🎓 Panel</h2>
+      <div class="menu">
+        <a href="#" class="active" onclick="mostrarSeccion('inicio')">🏠 Inicio</a>
+        <a href="#" onclick="mostrarSeccion('cursos')">📘 Mis Cursos</a>
+        <a href="#" onclick="mostrarSeccion('subir')">📤 Subir Tareas</a>
+        <a href="#" onclick="mostrarSeccion('info')">ℹ️ Información</a>
       </div>
     </div>
+    <div class="footer">© 2025 Mi Espacio Universitario</div>
   </div>
 
-  <script src="cursos.js"></script>
+  <!-- 💻 Contenido principal -->
+  <div class="content" id="main-content">
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Modo Claro</button>
+    <header>
+      <h1>Bienvenido a tu espacio universitario</h1>
+      <p>Organiza tus cursos, guías y tareas fácilmente.</p>
+    </header>
+  </div>
+
+  <script>
+    // 🌗 Modo Oscuro/Claro
+    const body = document.body;
+    const btn = document.querySelector('.theme-toggle');
+
+    function toggleTheme() {
+      body.classList.toggle('light');
+      const modo = body.classList.contains('light') ? 'claro' : 'oscuro';
+      localStorage.setItem('modo', modo);
+      btn.textContent = modo === 'claro' ? '🌙 Modo Oscuro' : '☀️ Modo Claro';
+    }
+
+    const modoGuardado = localStorage.getItem('modo');
+    if (modoGuardado === 'claro') {
+      body.classList.add('light');
+      btn.textContent = '🌙 Modo Oscuro';
+    }
+
+    // 📂 Navegación entre secciones
+    async function mostrarSeccion(seccion, event) {
+      const content = document.getElementById('main-content');
+      document.querySelectorAll('.menu a').forEach(a => a.classList.remove('active'));
+      if (event) event.target.classList.add('active');
+
+      if (seccion === 'inicio') {
+        content.innerHTML = `
+          <button class="theme-toggle" onclick="toggleTheme()">${body.classList.contains('light') ? '🌙 Modo Oscuro' : '☀️ Modo Claro'}</button>
+          <header><h1>Bienvenido 👋</h1><p>Selecciona una opción del panel lateral para empezar.</p></header>
+        `;
+      }
+
+      else if (seccion === 'cursos') {
+        const res = await fetch('courses.json');
+        const data = await res.json();
+        let html = `
+          <button class="theme-toggle" onclick="toggleTheme()">${body.classList.contains('light') ? '🌙 Modo Oscuro' : '☀️ Modo Claro'}</button>
+          <header><h1>📘 Mis Cursos</h1><p>Selecciona los materiales por semana.</p></header>
+          <div class="container">
+        `;
+        data.courses.forEach(curso => {
+          html += `
+            <div class="course-card">
+              <h2>${curso.title}</h2>
+              ${curso.weeks.map(sem => `
+                <div class="week">
+                  <strong>Semana ${sem.week}:</strong> ${sem.topic}
+                  <div class="resources">
+                    ${sem.resources.map(r => `<a href="${r.url}" target="_blank">📄 ${r.name}</a>`).join('')}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        });
+        html += '</div>';
+        content.innerHTML = html;
+      }
+
+      else if (seccion === 'subir') {
+        content.innerHTML = `
+          <button class="theme-toggle" onclick="toggleTheme()">${body.classList.contains('light') ? '🌙 Modo Oscuro' : '☀️ Modo Claro'}</button>
+          <header><h1>📤 Subir Archivos</h1><p>Sube tu tarea o guía en formato PDF.</p></header>
+          <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+            <p>Haz clic o arrastra tu archivo aquí 📄</p>
+            <input type="file" id="fileInput" accept=".pdf" style="display:none" onchange="subirArchivo(event)">
+          </div>
+          <div id="uploadResult" style="text-align:center; margin-top:1rem;"></div>
+        `;
+      }
+
+      else if (seccion === 'info') {
+        content.innerHTML = `
+          <button class="theme-toggle" onclick="toggleTheme()">${body.classList.contains('light') ? '🌙 Modo Oscuro' : '☀️ Modo Claro'}</button>
+          <header><h1>ℹ️ Información</h1><p>Proyecto educativo digital creado para organizar cursos y tareas.</p></header>
+          <div style="text-align:center; margin-top:2rem;">
+            <p><strong>Versión:</strong> 2.0</p>
+            <p><strong>Desarrollado por:</strong> Dirección Académica</p>
+            <p><strong>Tecnologías:</strong> HTML, CSS, JavaScript, JSON</p>
+          </div>
+        `;
+      }
+    }
+
+    // 📤 Subida simulada
+    function subirArchivo(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const result = document.getElementById('uploadResult');
+      result.innerHTML = `<p style="color:var(--accent-color); font-weight:bold;">✅ Archivo "${file.name}" cargado correctamente (solo vista previa).</p>`;
+    }
+  </script>
 </body>
 </html>
