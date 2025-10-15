@@ -1,0 +1,40 @@
+{
+  "courses": [
+    {
+      "name": "Filosofía",
+      "code": "FIL-101",
+      "professor": "Prof. Perez",
+      "icon": "🧠",
+      "weeks": [
+        {
+          "title": "Semana 1 — Introducción",
+          "desc": "Lectura: Capítulo 1. Entrega: resumen.",
+          "files": [
+            { "name": "Guía semana 1 (PDF)", "url": "files/filosofia/semana1/guia_sem1.pdf" },
+            { "name": "Apuntes - clase 1", "url": "files/filosofia/semana1/apuntes_clase1.pdf" }
+          ]
+        },
+        {
+          "title": "Semana 2 — Sócrates",
+          "desc": "Foro y tarea.",
+          "files": []
+        }
+      ]
+    },
+    {
+      "name": "Matemáticas",
+      "code": "MAT-102",
+      "professor": "Dra. Lopez",
+      "icon": "📐",
+      "weeks": [
+        {
+          "title": "Semana 1 — Álgebra",
+          "desc": "Ejercicios 1-10",
+          "files": [
+            { "name": "Ejercicios Álgebra", "url": "files/matematicas/semana1/ejercicios_algebra.pdf" }
+          ]
+        }
+      ]
+    }
+  ]
+}
