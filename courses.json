@@ -1,39 +1,16 @@
-{
-  "courses": [
-    {
-      "name": "Filosofía",
-      "code": "FIL-101",
-      "professor": "Prof. Pérez",
-      "icon": "🧠",
-      "weeks": [
-        {
-          "title": "Semana 1 — Introducción",
-          "desc": "Temas básicos y tarea 1.",
-          "files": [
-            { "name": "Guía del curso (PDF)", "url": "files/filosofia/semana1/guia.pdf" }
-          ]
-        },
-        {
-          "title": "Semana 2 — Sócrates",
-          "desc": "Ensayo sobre la verdad.",
-          "files": []
-        }
-      ]
-    },
-    {
-      "name": "Matemática",
-      "code": "MAT-102",
-      "professor": "Dra. López",
-      "icon": "📐",
-      "weeks": [
-        {
-          "title": "Semana 1 — Álgebra básica",
-          "desc": "Ejercicios 1–10",
-          "files": [
-            { "name": "Tarea 1", "url": "files/matematica/semana1/tarea1.pdf" }
-          ]
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "name": "Filosofía y Pensamiento Crítico",
+    "weeks": [
+      { "title": "Semana 1 - Introducción a la filosofía", "link": "files/filosofia/semana1/guia.pdf" },
+      { "title": "Semana 2 - Razonamiento lógico", "link": "files/filosofia/semana2/tarea.pdf" }
+    ]
+  },
+  {
+    "name": "Programación Básica",
+    "weeks": [
+      { "title": "Semana 1 - Fundamentos y variables", "link": "files/programacion/semana1/apuntes.pdf" },
+      { "title": "Semana 2 - Condicionales", "link": "files/programacion/semana2/tarea1.pdf" }
+    ]
+  }
+]
