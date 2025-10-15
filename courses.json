@@ -3,35 +3,34 @@
     {
       "name": "Filosofía",
       "code": "FIL-101",
-      "professor": "Prof. Perez",
+      "professor": "Prof. Pérez",
       "icon": "🧠",
       "weeks": [
         {
           "title": "Semana 1 — Introducción",
-          "desc": "Lectura: Capítulo 1. Entrega: resumen.",
+          "desc": "Temas básicos y tarea 1.",
           "files": [
-            { "name": "Guía semana 1 (PDF)", "url": "files/filosofia/semana1/guia_sem1.pdf" },
-            { "name": "Apuntes - clase 1", "url": "files/filosofia/semana1/apuntes_clase1.pdf" }
+            { "name": "Guía del curso (PDF)", "url": "files/filosofia/semana1/guia.pdf" }
           ]
         },
         {
           "title": "Semana 2 — Sócrates",
-          "desc": "Foro y tarea.",
+          "desc": "Ensayo sobre la verdad.",
           "files": []
         }
       ]
     },
     {
-      "name": "Matemáticas",
+      "name": "Matemática",
       "code": "MAT-102",
-      "professor": "Dra. Lopez",
+      "professor": "Dra. López",
       "icon": "📐",
       "weeks": [
         {
-          "title": "Semana 1 — Álgebra",
-          "desc": "Ejercicios 1-10",
+          "title": "Semana 1 — Álgebra básica",
+          "desc": "Ejercicios 1–10",
           "files": [
-            { "name": "Ejercicios Álgebra", "url": "files/matematicas/semana1/ejercicios_algebra.pdf" }
+            { "name": "Tarea 1", "url": "files/matematica/semana1/tarea1.pdf" }
           ]
         }
       ]
